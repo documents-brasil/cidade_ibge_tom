@@ -1,4 +1,4 @@
-from typing import Dict, Tuple, Optional
+from typing import Dict, Tuple
 from .cidade import cidade
 
 
@@ -25,11 +25,12 @@ def info_cidade(codigo: str = "") -> Dict[str, str]:
         codigo: Código IBGE (7 dígitos) ou código TOM (4 dígitos)
 
     Returns:
-        Dicionário com as informações da cidade ou dicionário vazio se não encontrado
+        Dicionário com as informações da cidade ou dicionário vazio
+        se não encontrado.
     """
     if not codigo:
         return {}
-        
+
     if not _indice_ibge:  # Verifica se os índices já foram inicializados
         _inicializar_indices()
 
@@ -53,4 +54,4 @@ def info_cidade(codigo: str = "") -> Dict[str, str]:
 
 
 # Inicializa os índices na importação do módulo
-_inicializar_indices() 
+_inicializar_indices()
