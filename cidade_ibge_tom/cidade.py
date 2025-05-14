@@ -1,6 +1,3 @@
-from typing import Dict
-
-
 cidade = {
     ('1100015', '0033'): "Alta Floresta D'Oeste-RO",
     ('1100023', '0007'): "Ariquemes-RO",
@@ -5573,21 +5570,3 @@ cidade = {
     ('5222302', '1068'): "Vila Propício-GO",
     ('5300108', '9701'): "Brasília-DF",
 }
-
-
-def info_cidade(codigo: str = '') -> Dict:
-    """
-    Mostra informações da Cidade informando código IBGE ou TOM
-
-    :param codigo: codigo IBGE ou codigo TOM
-    :return: Dict: Informações da cidade
-
-    """
-    return {
-        'cidade': {
-            'ibge': codigo_ibge,
-            'tom': codigo_tom,
-            'nome': nome_cidade
-        } for ((codigo_ibge, codigo_tom), nome_cidade) in cidade.items()
-        if codigo in [codigo_ibge, codigo_tom]
-    }.get('cidade') or {}
